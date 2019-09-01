@@ -8,11 +8,11 @@ jobs:
       # cache
       - restore_cache:
           keys:
-            - v1-twilog-web-archiver-deps-{{ .Branch }}-{{ checksum "poetry.lock" }}
-            - v1-twilog-web-archiver-deps-
+            - python-deps-{{ .Branch }}-{{ checksum "poetry.lock" }}
+            - python-deps-
       - run: poetry install
       - save_cache:
-          key: v1-twilog-web-archiver-deps-{{ .Branch }}-{{ checksum "poetry.lock" }}
+          key: python-deps-{{ .Branch }}-{{ checksum "poetry.lock" }}
           paths:
             - "/home/circleci/.cache/pypoetry/virtualenvs"
       # test
